@@ -9,4 +9,3 @@ class EarthRestProjectApplication
 fun main(args: Array<String>) {
     runApplication<EarthRestProjectApplication>(*args)
 }
-//test
