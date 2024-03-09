@@ -5,7 +5,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "EarthTable")
+@Table(name = "earth_table")
 data class EarthRestModel(@Id var uuid : String = "",
                           var name: String = "",
                           var commentary: String = "",
