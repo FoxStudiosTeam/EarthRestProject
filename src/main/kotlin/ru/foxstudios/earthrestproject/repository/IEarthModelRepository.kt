@@ -6,5 +6,4 @@ import ru.foxstudios.earthrestproject.model.EarthRestModel
 import ru.foxstudios.earthrestproject.service.EarthRestService
 @Repository
 interface IEarthModelRepository:JpaRepository<EarthRestModel, String> {
-
 }
