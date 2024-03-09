@@ -6,8 +6,7 @@ import ru.foxstudios.earthrestproject.repository.IEarthModelRepository
 
 @Service
 class EarthRestService(var earthRestRepository: IEarthModelRepository){
-    fun setMessage(value: String):EarthRestModel{
-        val messageSend:EarthRestModel = earthRestRepository.findEarthRestModelByUuid(value)
-        return messageSend
+    fun saveMessage(jsonData: EarthRestModel) {
+        earthRestRepository.save(jsonData)
     }
 }
