@@ -6,4 +6,6 @@ LABEL authors="xxlegendzxx22"
 WORKDIR /EarthRestProject
 COPY . /EarthRestProject
 RUN gradle jar
-ENTRYPOINT ["java","-XX:+UseZGC","-jar", "/build/libs/EarthRestProject-0.0.1-SNAPSHOT.jar"]
+#ENTRYPOINT ["java","-XX:+UseZGC","-jar", "/EarthRestProject/build/libs/EarthRestProject-0.0.1-SNAPSHOT.jar"]
+WORKDIR /EarthRestProject/build/libs/
+ENTRYPOINT ["sh", "ls"]
