@@ -6,11 +6,8 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "EarthTable")
-data class EarthRestModel(@Id var uuid : String,
-                          var name: String,
-                          var commentary: String,
-                          var file: String,
-                          var ext: String)
-{
-    constructor() : this("", "", "", "", "")
-}
+data class EarthRestModel(@Id var uuid : String = "",
+                          var name: String = "",
+                          var commentary: String = "",
+                          var file: String = "",
+                          var ext: String = "")

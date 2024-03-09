@@ -1,5 +1,6 @@
 package ru.foxstudios.earthrestproject.controller
 
+import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -11,10 +12,10 @@ import ru.foxstudios.earthrestproject.service.EarthRestService
 
 @RestController
 @RequestMapping("Message")
-class EarthRestController(@Autowired var repository: IEarthModelRepository) {
-    var service:EarthRestService=EarthRestService(repository)
-    @GetMapping("all/{value}")
-    fun getMessage(@PathVariable value:String):EarthRestModel{
-        return service.getMessage(value)
+class EarthRestController(@Autowired var earthRestRepository: IEarthModelRepository) {
+    var earthRestService:EarthRestService=EarthRestService(earthRestRepository)
+    @RabbitListener(queues = ["Jopa"])
+    fun getJsonRabbitMQ(jsonData:EarthRestModel):String{
+        return "dinah"
     }
 }

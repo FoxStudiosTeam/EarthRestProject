@@ -5,9 +5,9 @@ import ru.foxstudios.earthrestproject.model.EarthRestModel
 import ru.foxstudios.earthrestproject.repository.IEarthModelRepository
 
 @Service
-class EarthRestService(var repository: IEarthModelRepository){
-    fun getMessage(value: String):EarthRestModel{
-        val messageSend:EarthRestModel = repository.findEarthRestModelByUuid(value)
+class EarthRestService(var earthRestRepository: IEarthModelRepository){
+    fun setMessage(value: String):EarthRestModel{
+        val messageSend:EarthRestModel = earthRestRepository.findEarthRestModelByUuid(value)
         return messageSend
     }
 }
