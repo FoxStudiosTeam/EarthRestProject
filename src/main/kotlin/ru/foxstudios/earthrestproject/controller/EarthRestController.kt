@@ -16,6 +16,6 @@ class EarthRestController(@Autowired var earthRestRepository: IEarthModelReposit
     var earthRestService:EarthRestService=EarthRestService(earthRestRepository)
     @RabbitListener(queues = ["Jopa"])
     fun getJsonRabbitMQ(jsonData:EarthRestModel):String{
-        return "dinah"
+        return "123"
     }
 }
