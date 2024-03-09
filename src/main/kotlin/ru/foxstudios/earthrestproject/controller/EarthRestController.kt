@@ -16,9 +16,9 @@ import ru.foxstudios.earthrestproject.service.EarthRestService
 @RequestMapping("Message")
 class EarthRestController(@Autowired var earthRestRepository: IEarthModelRepository) {
     var earthRestService:EarthRestService=EarthRestService(earthRestRepository)
-    @PostMapping("/json")
-    fun saveJsonData(@RequestBody jsonData: EarthRestModel): String {
+    @RabbitListener(queues = ["MyQueue"])
+    fun getJsonRabbitMQ(jsonData: EarthRestModel): EarthRestModel {
         earthRestService.saveMessage(jsonData)
-        return "Data saved successfully"
+        return jsonData
     }
 }
