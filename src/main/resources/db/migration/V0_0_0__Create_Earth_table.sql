@@ -1,10 +1,8 @@
 create table earth_table
 (
-    uuid varchar(64)
-        constraint table_name_pk
-            primary key,
+    uuid varchar(64),
     name varchar(128),
     commentary text,
     file text,
-    ext varchar(128),
+    ext varchar(128)
 )
