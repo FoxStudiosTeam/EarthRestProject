@@ -16,6 +16,6 @@ class EarthRestService(var earthRestRepository: IEarthModelRepository){
         return earthRestRepository.findAll()
     }
     fun getMessageOne(uuid:String):EarthRestModel?{
-        return earthRestRepository.findById(uuid).orElse(null)
+        return earthRestRepository.findEarthRestModelByUuid(uuid)
     }
 }
