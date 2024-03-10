@@ -6,4 +6,4 @@ create table earth_table
     file text,
     ext varchar(128)
 );
-CREATE TABLE schedule (uuid varchar(64), speed float, fromD varchar(128), toD varchar(128))
+CREATE TABLE schedule (uuid varchar(64), speed float, fromD varchar(128), toD varchar(128), "sended" bool)
