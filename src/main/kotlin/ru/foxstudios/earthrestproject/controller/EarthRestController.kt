@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import ru.foxstudios.earthrestproject.model.EarthRestModel
 import ru.foxstudios.earthrestproject.model.JsonData
+import ru.foxstudios.earthrestproject.repository.IEarthModelRepository
 import ru.foxstudios.earthrestproject.service.EarthRestService
 
 @RestController
 @RequestMapping("Message")
-class EarthRestController(@Autowired val earthRestService: EarthRestService) {
+class EarthRestController(@Autowired val earthRestRepository: IEarthModelRepository) {
+    var earthRestService:EarthRestService=EarthRestService(earthRestRepository)
     @PostMapping("/json")
     fun saveJsonData(@RequestBody jsonData: String): EarthRestModel {
         val json = ObjectMapper().readValue(jsonData, JsonData::class.java)

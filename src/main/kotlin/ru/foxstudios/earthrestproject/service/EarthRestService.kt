@@ -7,7 +7,7 @@ import ru.foxstudios.earthrestproject.model.JsonData
 import ru.foxstudios.earthrestproject.repository.IEarthModelRepository
 
 @Service
-class EarthRestService(@Autowired var earthRestRepository: IEarthModelRepository){
+class EarthRestService(var earthRestRepository: IEarthModelRepository){
     fun saveMessage(jsonData: JsonData):EarthRestModel {
         val earthRestModel = EarthRestModel(jsonData)
         return earthRestRepository.save(earthRestModel)
