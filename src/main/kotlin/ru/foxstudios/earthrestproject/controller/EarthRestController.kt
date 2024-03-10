@@ -3,6 +3,7 @@ package ru.foxstudios.earthrestproject.controller
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -20,11 +21,11 @@ class EarthRestController(@Autowired val earthRestService: EarthRestService) {
         return earthRestService.saveMessage(json)
     }
     @GetMapping("/getAll")
-    fun getMessageAll(){
-
+    fun getMessageAll():List<EarthRestModel>{
+        return earthRestService.getMessageAll()
     }
-    @GetMapping("/getOne")
-    fun getMessageOne(){
-
+    @GetMapping("/getOne/{uuid}")
+    fun getMessageOne(@PathVariable uuid:String):EarthRestModel?{
+        return earthRestService.getMessageOne(uuid)
     }
 }
